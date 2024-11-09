@@ -1,11 +1,10 @@
-
 import Image from "next/image";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import './page.css';
 import client from "../../../../config/contentful";
 
-export default async function Page({ params }) {
-  const { slug } = params;
+export default async function SingleTrip({ params }) {
+  const { slug } = await params; 
   try {
     const res = await client.getEntry(slug);
     const { image, title, brief, content } = res.fields;
